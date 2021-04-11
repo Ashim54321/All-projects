@@ -1,0 +1,130 @@
+*
+{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+@media  only screen and (max-width:768px){
+  body{
+    width:100vw;
+  }
+  .image{
+    width:100vw;
+    height:50vh;
+  }
+  .nav{
+    width:100%;
+    float:left;
+    padding-left:0;
+  }
+  .nav-list{
+    display:block;
+    width:100%;
+
+  }
+  .heading-image{
+
+display: block;
+  }
+}
+    body{ 
+        width:100vw;
+       height: 1080px;
+       background-image: url(https://images.unsplash.com/photo-1515632816436-da217f0aef30?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=637&q=80);
+        background-position:center; 
+       font-family: sans-serif;
+         background-size:cover;
+         background-color: rgb(241, 237, 224);
+        
+        
+      }
+      
+  .Nav_bar{
+    background:rgb(0,100,0);
+    text-align: center;
+   
+  }
+  .Nav_bar ul{
+    display:inline-flex ;
+    list-style: none;
+    color:#fff;
+  }
+    .Nav_bar ul li {
+      width: 120px;
+      margin: 10px;
+      padding: 5px;
+      
+    }    
+    .Nav_bar ul li a{
+      text-decoration: none;
+      color:#fff;
+    }    
+    .acer, .Nav_bar ul li:hover{
+     background: #2bab0d;
+     border-radius: 3px;
+    }
+    .Nav_bar .fa{
+      margin-right: 8px;
+    }    
+    .sub-nav{
+      display: none;
+    
+    }
+    .Nav_bar ul li:hover .sub-nav{
+      display: block;
+      position: absolute;
+      background: rgb(0,100,0);
+      margin-top: 15px;
+      margin-left: 15px;
+    }
+    .Nav_bar ul li:hover .sub-nav ul{
+      display: block;
+      margin: 10px;
+    }
+    .Nav_bar ul li:hover .sub-nav ul li{
+      widows: 150px;
+      padding: 10px;
+      border-bottom: 1px dotted #fff;
+      text-align: left;
+      background: transparent;
+      border-radius: 0;
+    
+    }
+    .Nav_bar ul li:hover .sub-nav ul li:last-child{
+      border-bottom: none;
+    }
+    .Nav_bar ul li:hover .sub-nav ul li a:hover{
+           color: #b2ff00;
+    }
+
+    #main-footer{
+      margin-top:20px;
+      border:solid black 2px;
+      color:#fff;
+      padding-top:40px;
+      padding-left: 20px;
+      background-color: #2bab0d;
+      display: flex;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+      flex-basis: 33%;
+      justify-content: space-around;
+      font-family: sans-serif;
+      
+    }
+   .location:hover{
+     color: #b2ff00;
+   }
+   span{
+    color: rgb(0, 26, 255);
+    font-family: 'Zhi Mang Xing', cursive;
+}
+  .logo{
+    padding:5px;
+    background: none;
+    background-color: aliceblue;
+    border-bottom:2.5px solid gold;
+      border-top:2.5px solid blue;
+      
+  }  
+    

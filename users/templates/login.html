@@ -1,0 +1,148 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  
+  }
+  body{
+   background-color: rgb(211, 205, 195);
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  .container{
+    max-width: 500px;
+    height: 400px;
+    margin: auto;
+  }
+  .myLeftCtn{
+    position: relative;
+    height: 100%;
+    padding: 25px;
+    border-radius:25px;
+    background: rgb(235, 231, 228);
+    padding-left: 50px;
+  }
+  .myLeftCtn header{
+    color: blueviolet;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .row{
+    height: 100%;
+  }
+  .myCard{
+    position: relative;
+    background: white;
+    height: 100%;
+    border-radius: 25px;
+  }
+  .myForm{
+    position: relative;
+    margin-top: 30px;
+  }
+  .myLeftCtn .myinput{
+    width: 230px;
+    
+    margin: 5px; 
+    border-radius: 25px;
+    padding: 10px;
+    padding-left: 50px;
+    border: none;
+    -webkit-box-Shadow:0px 10px 40px -10px rgba(0,0,0,0.7);
+    -moz-box-Shadow:0px 10px 40px -10px rgba(0,0,0,0.7);
+    box-shadow:0px 10px 40px -10px rgba(0,0,0,0.7);
+  
+  }
+  .myLeftCtn .myinput:focus{
+    outline: none;
+  }
+  .myForm{
+    position: relative;
+    margin-top: 50px;
+  }
+  .myLeftCtn .butt{
+    background: linear-gradient(45deg,pink,purple);
+    border-radius:25px;
+    width: 195px;
+    padding: 10px;
+    color:white;
+    border: none;
+    margin: 2px;
+    margin-left: 40px;
+    -webkit-box-Shadow:0px 10px 40px -10px rgba(0,0,0,0.7);
+    -moz-box-Shadow:0px 10px 40px -10px rgba(0,0,0,0.7);
+    box-shadow:0px 10px 40px -10px rgba(0,0,0,0.7);
+  }
+  .myLeftCtn .butt:focus{
+    outline: none;
+  }
+  .myLeftCtn.fas{
+    position: relative;
+    color: pink;
+    left:36px;
+  
+  
+  }
+  .box{
+    position: relative;
+    margin: 20px;
+    margin-bottom: 100px;
+  }
+  .hyperlink{
+    margin: 32px;
+    font-size: 18px;
+    border-bottom: 1px blueviolet;
+    
+  }
+  
+</style>
+<body>
+<section class="container">
+    <div class="myCard">
+    <section class="row ">
+        <section class="col-md-6">
+            <div class="myLeftCtn">
+            <form class="myForm text-center" method="POST">
+                <header>Log In</header>
+                {%csrf_token%}
+              
+                  <div class="phone">
+                  <i class="fas fa-user"></i>
+                  <input class="myinput" type="text" name="username" placeholder="username" id="Mobile_number" required>
+                      
+                    </div>
+                     <div class="pass">
+                        <i class="fas fa-key"></i>
+                        <input class="myinput" type="password" name="password" placeholder="password" id="pass" required>
+                    </div>
+                   
+                   
+                    <button type="submit" class="butt">Log in</button>
+                   <div class="hyperlink">
+                <a   href="{%url "signup"%}"> Not Registered? Create an Account </a>
+                    </div>
+               </form>
+               </div>
+          </section>
+           </section>
+      </div>
+    </section> 
+</body>
+</html>
