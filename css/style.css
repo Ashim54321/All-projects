@@ -242,7 +242,7 @@ header .intro-text {
 }
 /* Room List Section */
 #restaurant-menu {
-	padding: 0 0 60px 0;
+	/* padding: 0 0 60px 0; */
 }
 #restaurant-menu .section-title {
 	background: #444 url(../img/9.jpg) center center no-repeat fixed;
