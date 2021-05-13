@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel Annpurna</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="{% static 'css/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="{% static 'css/style.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <img class="img-profile rounded-circle" src="{%static 'img/logo1.png'%}" alt="Avatar" width="75" height="60">
+      <a class="navbar-brand page-scroll" href="#page-top">Hotel Annapurna</a> 
+   
+    </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'home'%} "class="page-scroll ">Home</a></li>
+        <li><a href="{% url 'booking'%}" class="page-scroll">Bookings</a></li>
+        <li><a href="{% url 'about'%}" class="page-scroll">About</a></li>
+        <li><a href="{% url 'contact'%}" class="page-scroll">Contact</a></li>
+        <li><a href="{% url 'gallery'%}" class="page-scroll">Gallery</a></li>
+      {% if request.user.is_authenticated %}
+        <li><a href="{% url 'logout'%}" class="page-scroll">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login'%}" class="page-scroll"><i class="fas fa-user fa-2x" ></i></a></li>
+        {% endif %}
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+</nav>
+<!-- Header -->
+<header id="header">
+  <div class="intro">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="intro-text">
+            <h1> Annapurna</h1>
+            <p>Welcome to Annapurna hotel...</p>
+            <a href="bookings.html" class="btn btn-custom btn-lg page-scroll">BOOK ROOM</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- About Section -->
+<div id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 ">
+        <div class="about-img"><img src="{%static 'img/1.jpg'%}" class="img-fluid" alt="" style="width:468px; height: 380px;"></div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>Our Hotel</h2>
+          <hr>
+          <p style="color:black;font-weight: normal;">Set on a 2-hectare property with landscaped gardens, this upscale hotel is 1 km from the landmark Kathmandu Durbar Square and 5 km from Tribhuvan International Airport.</p>
+          <h3>Short Details</h3>
+          <p style="color:black;font-weight: normal;">The traditional, warmly decorated rooms feature minifridges and flat-screen TVs, plus tea and coffeemaking facilities. Upgraded rooms come with free Wi-Fi and/or sitting areas, while club rooms have access to a private lounge with drinks and snacks. Suites offer separate living and dining areas (1 has a kitchen).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Hotel Room List -->
+<div id="hotel-list">
+  <div class="section-title text-xs-center center">
+    <div class="overlay">
+      <h2>Rooms List</h2>
+      <hr>
+      <p>It’s the little things that make a big difference. So, fully enjoy your stay with us</p>
+    </div>
+  </div>
+
+ 
+</div>
+<div class="container">
+  <div class="row" >
+    {%for room in rooms %}
+  <div class="col-xs-12 col-md-4" >
+  
+            
+                 <!-- <div class="card">
+                   <div class="card-body">
+                     <h5 class="card-title mb-4">Room No:</h5>
+                     <h1 class="display-5 mt-1 mb-3">Status:</h1>
+                     <div class="mb-1">
+                       <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -3.65% </span>
+                       <span class="text-muted">Since last week</span>
+                     </div>
+                     <div class="button1">
+                     <button>Book</button>
+                    </div>
+                   </div>
+                 </div> -->
+
+                
+                 <div class="card" style="width: 295px;border:1px solid #8eb640">
+                   {%if room.image1%}
+                  <img src="{{room.image1.url}}" class="card-img-top" alt="..." style="width: 294px;height:200px">
+                   {%endif%}
+                  <div class="card-body">
+                    <h5 class="card-text" style="text-transform:none ;">Room No:{{room.room_number}} </h5>
+                    <h5 class="card-text" style="text-transform:none ;"> Status: {{room.room_status}}</h5>
+                    <h5 class="card-text" style="text-transform:none ;">Description:{{room.room_des}}</h5>
+                    <h5 class="card-text" style="text-transform:none; ">Price:{{room.price}}</h5>
+                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    <a href="{%url 'booking'%}" class="btn btn-primary" style="border-color:#8eb640; background-color:#8eb640;">Book Now</a>
+                    <a href="{%url 'booking'%}" class="btn btn-primary" style="border-color:#8eb640; background-color:#8eb640;">View Room</a>
+                  </div>
+                </div>
+
+
+
+</div>
+{%endfor%}
+</div>
+  
+</div>
+
+
+
+
+<!--Footer-->>
+<div id="footer">
+  <div class="container text-xs-center">
+    <div class="col-md-4">
+      <h3>Address</h3>
+      <div class="contact-item">
+        <p><i class="fas fa-map-marker-smile"></i> Kathmandu 44600,</p>
+        
+        <p><i class="fa fa-location-arrow"></i> NEPAL, 4221711</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>Opening Hours</h3>
+      <div class="contact-item">
+        <p>Mon-Thurs: 8:00 AM - 11:00 PM</p>
+        <p>Fri-Sat: 11:00 AM - 9:00 PM</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>Contact Info</h3>
+      <div class="contact-item">
+        <p><i class="fa fa-phone"></i>  +01-4221711</p>
+        <p><i class="fas fa-mobile-alt"></i> 9860470039</p>
+        <p><i class="fa fa fa-envelope"></i>  hotelannapurna@gmail.com</p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid copyrights">
+    <div class="col-md-12 ">
+      <div class="social">
+        <ul>
+          <i class="fab fa-facebook-f" style="padding: 10px;color:black;" ></i>
+          <i class="fab fa-twitter" style="padding: 10px;color:black;"></i>
+          <i class="fab fa-google-plus-g" style="color:black;"></i>
+        </ul>
+      </div>
+      <p >copy; 2021 Hotel Annapurna. All rights reserved. Designed by <a href="#" rel="nofollow">Aura Groups</a></p>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="{% static 'js/jquery.1.11.1.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/main.js'%}"></script>
+</body>
+</html>

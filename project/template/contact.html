@@ -1,0 +1,215 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel Annpurna</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="{% static 'css/bootstrap.css'%}">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+<!-- Stylesheet
+    ================================================== -->
+   
+<link rel="stylesheet" type="text/css"  href="{% static 'css/style.css'%}">
+
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+</head>
+
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <img class="img-profile rounded-circle" src="{% static 'img/logo1.png'%}" alt="Avatar" width="75" height="60">
+      <a class="navbar-brand page-scroll" href="#page-top">Hotel Annapurna</a> 
+   
+    </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+         <li><a href="{% url 'home'%} "class="page-scroll ">Home</a></li>
+        <li><a href="{% url 'booking'%}" class="page-scroll">Bookings</a></li>
+        <li><a href="{% url 'about'%}" class="page-scroll">About</a></li>
+        <li><a href="{% url 'contact'%}" class="page-scroll">Contact</a></li>
+        <li><a href="{% url 'gallery'%}" class="page-scroll">Gallery</a></li>
+{% if request.user.is_authenticated %}
+        <li><a href="{% url 'logout'%}" class="page-scroll">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login'%}" class="page-scroll"><i class="fas fa-user fa-2x" ></i></a></li>
+        {% endif %}
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+</nav>
+<div id="hotel-list1">
+    <div class="section-title text-xs-center center">
+      <div class="overlay">
+        <h2 >Contact Us</h2>
+        <hr>
+        <p>Get In Touch With Us</p>
+      </div>
+      <nav aria-label="breadcrumb"  >
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'home'%}" style="color:black;font-weight: bold;">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page" style="color:black;font-weight: normal;">Contact page</li>
+        </ol>
+      </nav>
+    </div>
+</div>
+
+<body>
+
+
+    
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" style="background-image:url(images/contact.png)">
+        <div class="auto-container">
+            <!-- Sec Title -->
+            <div class="sec-title">
+                <h2 >Get In Touch</h2>
+                <div class="text"  style="color:black;font-weight: normal;font-size:16px;">Do you have anything in your mind to let us know?  Kindly don't delay to connect to us by means of our contact form.</div>
+            </div>
+            
+            <div class="row clearfix">
+                
+                <!-- Form Column -->
+                <div class="form-column col-lg-7 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        
+                        <!-- Contact Form -->
+                        <div class="contact-form">
+                                
+                            <!--Contact Form-->
+
+                            <form method="post" action="{% url 'contact'%}" id="contact-form">
+                                {% csrf_token %}
+                                <div class="row clearfix">
+                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                        <input type="text"  style="color:black;font-weight: normal;" name="name" placeholder="Your name" required>
+                                    </div>
+                                    
+                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                        <input type="text"  style="color:black;font-weight: normal;" name="email" placeholder="Email address" required>
+                                    </div>
+                                    
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <input type="text"  style="color:black;font-weight: normal;" name="subject" placeholder="Subject" required>
+                                    </div>
+                                    
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <textarea name="message"  style="color:black;font-weight: normal;" placeholder="Message"></textarea>
+                                    </div>
+                                    
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <button class="theme-btn btn-style-one" type="submit" name="submit-form" style="background-color:#8eb640;border-color: #8eb640; color:#ffff"><span class="txt" >Submit now</span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- Info Column -->
+                <div class="info-column col-lg-5 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        
+                        <!-- Contact Info List -->
+                        <ul class="contact-info-list">
+                            <li style="color:black;font-weight: normal;"><strong >Address :</strong><br>256, Durbar Marg, Kathmandu</li>
+                        </ul>
+                        <!-- Contact Info List -->
+                        <ul class="contact-info-list">
+                            <li ><strong>Phone : </strong><a href="tel:1800-456-7890" style="color:black;font-weight: normal;">+01 429823</a></li>
+                            <li ><strong>Email : </strong><a href="mailto:info@stellaorre.com" style="color:black;font-weight: normal;">info@annapurna.com</a></li>
+                        </ul>
+                        <!-- Contact Info List -->
+                        <ul class="contact-info-list">
+                            <li style="color:black;font-weight: normal;"><strong>Opening Hours :</strong><br>8:00 AM – 10:00 PM <br> Saturday – Sunday</li>
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </section>
+    <section class="location">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.200454985!2d85.31435691490151!3d27.71109648279043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190162d2fb35%3A0x98eccd6cf32b17f9!2sHotel%20Annapurna!5e0!3m2!1sen!2snp!4v1620215114816!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+
+
+
+<div id="footer">
+  <div class="container text-xs-center">
+    <div class="col-md-4">
+      <h3>Address</h3>
+      <div class="contact-item">
+        <p><i class="fas fa-map-marker-smile"></i> Kathmandu 44600,</p>
+        
+        <p><i class="fa fa-location-arrow"></i> NEPAL, 4221711</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>Opening Hours</h3>
+      <div class="contact-item">
+        <p>Mon-Thurs: 8:00 AM - 11:00 PM</p>
+        <p>Fri-Sat: 11:00 AM - 9:00 PM</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>Contact Info</h3>
+      <div class="contact-item">
+        <p><i class="fa fa-phone"></i>  +01-4221711</p>
+        <p><i class="fas fa-mobile-alt"></i> 9860470039</p>
+        <p><i class="fa fa fa-envelope"></i>  hotelannapurna@gmail.com</p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid copyrights">
+    <div class="col-md-12 ">
+      <div class="social">
+        <ul>
+          <i class="fab fa-facebook-f" style="padding: 10px;color:black;" ></i>
+          <i class="fab fa-twitter" style="padding: 10px;color:black;"></i>
+          <i class="fab fa-google-plus-g" style="color:black;"></i>
+        </ul>
+      </div>
+      <p >copy; 2021 Hotel Annapurna. All rights reserved. Designed by <a href="#" rel="nofollow">Aura Groups</a></p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="{% static 'js/jquery.1.11.1.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/main.js'%}"></script>
+</body>
+
+</html>

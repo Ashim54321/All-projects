@@ -1,0 +1,342 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel Annpurna</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="{% static 'css/bootstrap.css'%}">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="{% static 'css/style.css'%}">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+
+<style>
+.btn-primary{
+background-color: #8eb640;
+border-color: #8eb640;
+}
+
+input[type=number][id=phone]::-webkit-inner-spin-button,
+  input[type=number][id=phone]::-webkit-outer-spin-button{
+    -webkit-appearance:none;
+    margin:0;
+  }
+
+
+</style>
+
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <img class="img-profile rounded-circle" src="{% static 'img/logo1.png'%}" alt="Avatar" width="75" height="60">
+      <a class="navbar-brand page-scroll" href="#page-top">Hotel Annapurna</a> 
+   
+    </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'home'%} "class="page-scroll ">Home</a></li>
+        <li><a href="{% url 'booking'%}" class="page-scroll">Bookings</a></li>
+        <li><a href="{% url 'about'%}" class="page-scroll">About</a></li>
+        <li><a href="{% url 'contact'%}" class="page-scroll">Contact</a></li>
+        <li><a href="{% url 'gallery'%}" class="page-scroll">Gallery</a></li>
+{% if request.user.is_authenticated %}
+        <li><a href="{% url 'logout'%}" class="page-scroll">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login'%}" class="page-scroll"><i class="fas fa-user fa-2x" ></i></a></li>
+        {% endif %}      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+</nav>
+<div id="hotel-list1">
+    <div class="section-title text-xs-center center">
+      <div class="overlay">
+        <h2>Booking Page</h2>
+        <hr>
+        <p >Come in as guests. Leave as family....</p>
+      </div>
+      <nav aria-label="breadcrumb"  >
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'home'%}" style="color:black;font-weight: bold;">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page" style="color:black;font-weight: normal;">Booking page</li>
+        </ol>
+      </nav>
+    </div>
+</div>
+
+  
+  <div class="container">
+    <div class="row">
+    <div class="col-md-6">
+    <h2 class="mb-5">BOOK A ROOM</h2>
+    <form method="post" action="{% url 'my_bookings' %}">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-sm-6 form-group">
+        
+        <label for="">Arrival Date</label>
+        <div style="position: relative;">
+          <input type="date" class="form-control" id="arrival_date" placeholder="d/m/Y" required data-error="Please enter Date">
+        </div>
+        </div>
+        <div class="col-sm-6 form-group">
+        <label for="">Departure Date</label>
+        <div style="position: relative;">
+      
+        <input type="date" class="form-control" id="departure_date" placeholder="d/m/Y" required data-error="Please enter Date">
+        </div>
+        </div>
+        </div>
+      
+        <div class="row">
+        <div class="col-md-6 form-group">
+        <label for="room"><i class="fa fa-1x fa-bed tm-form-element-icon"></i> Room</label>
+        <input name="" id="room" type="number" class="form-control" min="1" max="7" required data-error>
+       
+        </div>
+        <div class="col-md-6 form-group">
+            <label for="room">Number of nights</label>
+            <input name="" id="nights" type="number"class="form-control" min="1" required data-error>
+       
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 form-group">
+            <label for="room"><i class="fa fa-1x fa-user tm-form-element-icon"></i> Adult</label>
+            <input name="" id="adult" type="number"class="form-control" min="0" required data-error>
+          </div>
+      
+     
+          <div class="col-md-6 form-group">
+              <label for="room"><i class="fas fa-child"></i> Children</label>
+              <input name="" id="children" type="number"class="form-control" min="0" required data-error>
+              </select>
+          </div>
+          </div>     
+        
+        <div class="row">
+          <div class="col-md-12 form-group">
+          <label for="phone"><i class="fas fa-map-marker-alt"></i> Address</label>
+          <input type="text" id="address" class="form-control " placeholder="Place your Address" required data-error >
+          <div class="form-text with-errors"></div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 form-group">
+            <label for="phone"><i class="fas fa-phone-alt"></i>  Phone number</label>
+            <input type="tel" id="phone" class="form-control " placeholder="Place your Phone number" pattern="[0-9]{10}" required >
+            <div class="form-text with-errors"></div>
+            </div>
+            </div>   
+     
+           
+    <div class="row">
+    <div class="col-md-12 form-group">
+    <label for="message">Any Special request?</label>
+    <textarea name="message" id="message" class="form-control" placeholder="Leave any message if you have.." cols="30" rows="8"></textarea>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6 form-group">
+ 
+    <button type="submit" value="Book Now" class="btn btn-primary" id="submit" style="border-color:#8eb640;font-weight: bold;">Book Now</button>
+    <!-- <button type="button" value="Book Now" class="btn btn-primary" id="submit" style="border-color:#8eb640;font-weight: bold;">Check bookings</button> -->
+    <a href="{% url 'my_bookings' %}" class="btn btn-primary btn-sm" style="border-color:#8eb640;font-weight: bold; padding:7px 7px;" >Check bookings</a>
+    </div>
+    </div>
+    </form>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <h3 class="mb-5">Featured Room</h3>
+      <div class="card" style="width: 47rem;">
+        <img src="{% static 'img/8.jpg'%}" class="card-img-top" alt="Generic placeholder image" style="width:47rem;">
+        
+        <div class="card-body">
+          <span style="font-weight: bold;">
+            Featured Room
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star"></i>
+           <i class="fas fa-star-half-alt"></i>
+           </span>
+          <h1 class="card-title" style="font-family: Playfair Display; color: #8eb640;">Presidential Room</h1>
+          
+            <li><i class="fas fa-users"></i> 2 Guests</li>
+            <li><i class="fas fa-crop-alt"></i> 22 ft <sup>2</sup></li>
+            <br>
+          <p class="card-text">By the name one can recognize how special this room is, so this room is mostly for special VIPs and meeting purposes.</p>
+          <!-- <p><a href="#" class="btn btn-primary btn-sm"  >Book now from $20</a></p> -->
+          <button type="submit" value="Book Now" class="btn btn-primary btn-sm" style="border-color:#8eb640;font-weight: bold;">Book now from $20</button>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+<!--Footer-->>
+<div id="footer">
+    <div class="container text-xs-center">
+      <div class="col-md-4">
+        <h3>Address</h3>
+        <div class="contact-item">
+          <p><i class="fas fa-map-marker-smile"></i> Kathmandu 44600,</p>
+          
+          <p><i class="fa fa-location-arrow"></i> NEPAL, 4221711</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3>Opening Hours</h3>
+        <div class="contact-item">
+          <p>Mon-Thurs: 8:00 AM - 11:00 PM</p>
+          <p>Fri-Sat: 11:00 AM - 9:00 PM</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3>Contact Info</h3>
+        <div class="contact-item">
+          <p><i class="fa fa-phone"></i>  +01-4221711</p>
+          <p><i class="fas fa-mobile-alt"></i> 9860470039</p>
+          <p><i class="fa fa fa-envelope"></i>  hotelannapurna@gmail.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid copyrights">
+      <div class="col-md-12 ">
+        <div class="social">
+          <ul>
+            <i class="fab fa-facebook-f" style="padding: 10px;color:black;" ></i>
+            <i class="fab fa-twitter" style="padding: 10px;color:black;"></i>
+            <i class="fab fa-google-plus-g" style="color:black;"></i>
+          </ul>
+        </div>
+        <p >copy; 2021 Hotel Annapurna. All rights reserved. Designed by <a href="#" rel="nofollow">Aura Groups</a></p>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="{% static 'js/jquery.1.11.1.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/main.js'%}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+		
+  $("#submit").click(function(){
+    var arrival_date =$("#arrival_date").val();
+  var departure_date =$("#departure_date").val();
+  var room =$("#room").val();
+  var nights =$("#nights").val();
+  var adult =$("#adult").val();
+  var children =$("#children").val();
+  var address =$("#address").val();
+  var phone =$("#phone").val();
+
+  if(arrival_date ==''){
+  swal({
+title: "Fields empty!!",
+text: "Arrival date is empty!",
+icon: "warning",
+button: "OK",
+});
+
+  }
+ 
+
+  else if(departure_date ==''){
+  swal({
+title: "Fields empty!!",
+text: "Departure date is empty!",
+icon: "warning",
+button: "OK",
+});
+  } 
+  else if(room ==''){
+  swal({
+title: "Fields empty!!",
+text: "Not selected any room!",
+icon: "warning",
+button: "OK",
+});
+  } 
+
+
+  else if(nights ==''){
+  swal({
+title: "Fields empty!!",
+text: "Not chosen number of nights!",
+icon: "warning",
+button: "OK",
+});
+  } 
+  else if(adult ==''){
+  swal({
+title: "Fields empty!!",
+text: "Not selected any person!",
+icon: "warning",
+button: "OK",
+});
+  } 
+  else if(children ==''){
+  swal({
+title: "Fields empty!!",
+text: "Not selected any children!",
+icon: "warning",
+button: "OK",
+});
+  } 
+  else if(address ==''){
+  swal({
+title: "Fields empty!!",
+text: "Input address is empty!",
+icon: "warning",
+button: "OK",
+});
+  }
+
+  else if(phone ==''|| phone.length !=10){
+  swal({
+title: "Warning!",
+text: "Phone number must consist of 10 digits!",
+icon: "warning",
+button: "OK",
+});
+  }
+   
+  else{
+  swal({
+title: "Successfully booked!!",
+icon: "success",
+button: "Hurray !!",
+}); 
+  }
+})
+</script>
+</body>
+</html>

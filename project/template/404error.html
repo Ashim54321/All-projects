@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel Annapurna</title>   
+          <meta name="keywords" content="">
+          <meta name="description" content="">
+          <meta name="author" content="">
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+
+<style>
+    body {
+background-color:#ffff ;
+/* #d0a772 */
+}
+
+.mainbox {
+background-color: #ffff ;
+margin-top:120px;
+margin-left: 250px;
+
+height: 500px;
+width: 600px;
+position: relative;
+}
+
+.err {
+color: #8eb640;
+font-family: 'Nunito Sans', sans-serif;
+font-size: 18rem;
+position:absolute;
+left: 20%;
+top: 8%;
+}
+
+.far {
+position: absolute;
+font-size: 14.5rem;
+left: 40%;
+top: 10%;
+color: #8eb640;
+}
+
+.err2 {
+color: #8eb640;
+font-family: 'Nunito Sans', sans-serif;
+font-size: 18rem;
+position:absolute;
+left: 68%;
+top: 8%;
+}
+
+.msg {
+text-align: center;
+font-family: 'Nunito Sans', sans-serif;
+font-size: 2.6rem;
+position:absolute;
+left: 16%;
+top: 55%;
+width: 75%;
+}
+.msg p{
+    font-size: 2.6rem;
+}
+.msg a {
+text-decoration: none;
+color: black;
+
+}
+
+a:hover {
+text-decoration: underline;
+}
+</style>
+
+
+</head>
+<body>
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top" style="background-color: black;">
+  <div class="container" > 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <img class="img-profile rounded-circle" src="img/logo1.png" alt="Avatar" width="75" height="60">
+      <a class="navbar-brand page-scroll" href="#page-top">Hotel Annapurna</a> 
+   
+    </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+         <li><a href="{% url 'home'%} "class="page-scroll ">Home</a></li>
+        <li><a href="{% url 'booking'%}" class="page-scroll">Bookings</a></li>
+        <li><a href="{% url 'about'%}" class="page-scroll">About</a></li>
+        <li><a href="{% url 'contact'%}" class="page-scroll">Contact</a></li>
+        <li><a href="{% url 'gallery'%}" class="page-scroll">Gallery</a></li>
+        <li><a href="{% url 'login'%}" class="page-scroll"><i class="fas fa-user fa-2x" ></i></a></li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="mainbox">
+          <div class="err">4</div>
+          <i class="far fa-question-circle fa-spin"></i>
+          <div class="err2">4</div>
+          <div class="msg">Maybe this page moved? Got deleted? Is hiding out in quarantine? Never existed in the first place?<p>Let's go
+               <a href="index.html">home</a> and try from there.</p></div>
+            </div>
+      </div>
+    </div>
+  </div>
+  <!--Footer-->>
+<div id="footer">
+    <div class="container text-xs-center">
+      <div class="col-md-4">
+        <h3>Address</h3>
+        <div class="contact-item">
+          <p><i class="fas fa-map-marker-smile"></i> Kathmandu 44600,</p>
+          
+          <p><i class="fa fa-location-arrow"></i> NEPAL, 4221711</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3>Opening Hours</h3>
+        <div class="contact-item">
+          <p>Mon-Thurs: 8:00 AM - 11:00 PM</p>
+          <p>Fri-Sat: 11:00 AM - 9:00 PM</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3>Contact Info</h3>
+        <div class="contact-item">
+          <p><i class="fa fa-phone"></i>  +01-4221711</p>
+          <p><i class="fas fa-mobile-alt"></i> 9860470039</p>
+          <p><i class="fa fa fa-envelope"></i>  hotelannapurna@gmail.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid copyrights">
+      <div class="col-md-12 ">
+        <div class="social">
+          <ul>
+            <i class="fab fa-facebook-f" style="padding: 10px;color:black;" ></i>
+            <i class="fab fa-twitter" style="padding: 10px;color:black;"></i>
+            <i class="fab fa-google-plus-g" style="color:black;"></i>
+          </ul>
+        </div>
+        <p >copy; 2021 Hotel Annapurna. All rights reserved. Designed by <a href="#" rel="nofollow">Aura Groups</a></p>
+      </div>
+    </div>
+  </div>     
+
+</body>
+</html>

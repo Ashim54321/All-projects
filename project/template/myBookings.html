@@ -1,0 +1,213 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel Annpurna</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="{% static 'css/bootstrap.css'%}">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="{% static 'css/style.css'%}">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+
+<style>
+.btn-primary{
+background-color: #8eb640;
+border-color: #8eb640;
+}
+
+</style>
+
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" >
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <img class="img-profile rounded-circle" src="{% static 'img/logo1.png'%}" alt="Avatar" width="75" height="60">
+      <a class="navbar-brand page-scroll" href="#page-top">Hotel Annapurna</a> 
+   
+    </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'home'%} "class="page-scroll ">Home</a></li>
+        <li><a href="{% url 'booking'%}" class="page-scroll">Bookings</a></li>
+        <li><a href="{% url 'about'%}" class="page-scroll">About</a></li>
+        <li><a href="{% url 'contact'%}" class="page-scroll">Contact</a></li>
+        <li><a href="{% url 'gallery'%}" class="page-scroll">Gallery</a></li>
+{% if request.user.is_authenticated %}
+        <li><a href="{% url 'logout'%}" class="page-scroll">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login'%}" class="page-scroll"><i class="fas fa-user fa-2x" ></i></a></li>
+        {% endif %}      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+</nav>
+<div id="hotel-list1">
+    <div class="section-title text-xs-center center">
+      <div class="overlay">
+        <h2 >Booking Confirmaiton Page</h2>
+        <hr>
+        <p >Have a happy holiday!!</p>
+      </div>
+      <nav aria-label="breadcrumb"  >
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'home'%}" style="color:black;font-weight: bold;">Home</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'booking'%}" style="color:black;font-weight: bold;"  >Booking</a></li>
+          <li class="breadcrumb-item active" aria-current="page" style="color:black;font-weight: normal;">Confirmation page</li>
+        </ol>
+      </nav>
+    </div>
+</div>
+
+  
+  <div class="container"  >
+    <div class="row">
+    <div class="col-md-6">
+    <h2 class="mb-5">Booking Confirmation</h2>
+    <div class="card" style="width: 500px;">
+        <img src=" {% static 'img/calender.jpg'%}" style="width: 500px; height:300px;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" >Date and number of people</h5>
+          <p class="card-text" style="font-weight: bolder; color:black;">Arrival Date: {{ my_booking.arrival_date }}</p>
+          <p class="card-text" style="font-weight: bolder; color:black;">Departure Date: {{ my_booking.departure_date }}</p>
+          <p class="card-text" style="font-weight: bolder; color:black;">Number of night stay: {{ my_booking.num_nights }}</p>
+          <p class="card-text" style="font-weight: bolder; color:black;">Number of people: {{ my_booking.num_person }}</p>
+     
+        </div>
+      </div>
+    
+    </div>
+    <div class="col-md-6" style=" padding-top:50px;">
+        <div class="card" style="width: 500px;">
+            <img src=" {% static 'img/8.jpg'%}" style="  width: 500px; height:300px;" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title" >ROOM DETAILS</h5>
+              <p class="card-text" style="font-weight: bolder; color:black;">Room Number:{{ my_booking.room.room_number }}</p>
+              <p class="card-text">Room description: {{ my_booking.room.room_des }}</p>
+         
+            </div>
+          </div>
+
+
+    </div>
+
+
+  
+    </div>
+ 
+    </div>
+<div class="container" >
+    <div class="row">
+        
+            <div class="col-md-6">
+               
+                <div class="card" style="width: 500px;">
+                    <img src=" {% static 'img/customer1.jpg'%}" style="width: 500px; height:300px;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title" >CUSTOMER DETAILS</h5>
+                      <p class="card-text" style="font-weight: bolder; color:black;">Customer Name: {{ my_booking.name.username }}</p>
+                      <p class="card-text" style="font-weight: bolder; color:black;">Address: {{ my_booking.address }}</p>
+                      <p class="card-text" style="font-weight: bolder; color:black;">Phone Number: {{ my_booking.phone_num }}</p>
+                      <p class="card-text" style="font-weight: bolder; color:black;">Email: {{ my_booking.name.email }}</p>
+                 
+                    </div>
+                  </div>
+                
+                </div>
+
+                <div class="col-md-6" >
+     
+                    <div class="card" style="width: 500px;">
+                        <img src=" {% static 'img/payment.jpg'%}" style="  width: 500px; height:300px;" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title" >PAYMENT SUMMARY</h5>
+                          <p class="card-text" style="font-weight: bolder; color:black;">Room price per night: {{ my_booking.room.price }}</p>
+                          <p class="card-text" style="font-weight: bolder; color:black;">Number of room: {{ my_booking.room_select }}</p>
+<!--                          <p class="card-text" style="font-weight: bolder; color:black;">Grand Total:</p>-->
+
+  
+                     
+                        </div>
+                      </div>
+                </div>
+                
+        
+
+    </div>
+    <button type="submit" value="Cancel Bookings" class="btn btn-danger" id="submit" style="float:right;font-weight: bold;border-color:#8eb640 ;">Cancel Booking</button>
+</div>
+
+<!--Footer-->>
+<div id="footer">
+    <div class="container text-xs-center">
+      <div class="col-md-4">
+        <h3>Address</h3>
+        <div class="contact-item">
+          <p><i class="fas fa-map-marker-smile"></i> Kathmandu 44600,</p>
+          
+          <p><i class="fa fa-location-arrow"></i> NEPAL, 4221711</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3>Opening Hours</h3>
+        <div class="contact-item">
+          <p>Mon-Thurs: 8:00 AM - 11:00 PM</p>
+          <p>Fri-Sat: 11:00 AM - 9:00 PM</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3>Contact Info</h3>
+        <div class="contact-item">
+          <p><i class="fa fa-phone"></i>  +01-4221711</p>
+          <p><i class="fas fa-mobile-alt"></i> 9860470039</p>
+          <p><i class="fa fa fa-envelope"></i>  hotelannapurna@gmail.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid copyrights">
+      <div class="col-md-12 ">
+        <div class="social">
+          <ul>
+            <i class="fab fa-facebook-f" style="padding: 10px;color:black;" ></i>
+            <i class="fab fa-twitter" style="padding: 10px;color:black;"></i>
+            <i class="fab fa-google-plus-g" style="color:black;"></i>
+          </ul>
+        </div>
+        <p >copy; 2021 Hotel Annapurna. All rights reserved. Designed by <a href="#" rel="nofollow">Aura Groups</a></p>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="{% static 'js/jquery.1.11.1.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/main.js'%}"></script>
+
+
+
+</body>
+</html>
